@@ -26,6 +26,6 @@ EOF
 if [ ! -f $BUILD_DIR/Procfile ]; then
 cat <<EOF
 default_process_types:
-  web: ant run
+  web: ant run-dev
 EOF
 fi
