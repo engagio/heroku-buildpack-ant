@@ -47,7 +47,7 @@ else
 fi
 
 
-if [ ! -f $BUILD_DIR/build.xml ] ; then
+if [ ! -f $BUILD_DIR/server/build.xml ] ; then
 	echo "Failed to build app with Apache Ant"
 fi
 
