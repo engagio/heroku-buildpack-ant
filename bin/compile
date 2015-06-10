@@ -42,7 +42,7 @@ if [ -x $SCALA_HOME/bin/scala ] ; then
 else
 	echo "-----> Installing Scala version $SCALA_VER..... [start]"
 	curl --max-time 180 --location $SCALA_URL | tar xz
-	chmod +x $SCALA_HOME/bin/ant
+	chmod +x $SCALA_HOME/bin/scala
 	echo "-----> Installing Scala version $SCALA_VER..... [done ]!"
 fi
 
