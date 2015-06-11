@@ -84,11 +84,11 @@ cd ${BUILD_DIR}
 export ANT_OPTS="-Xmx512m"
 
 # build app
-PRE_BUILDCMD="$ANT_HOME/bin/ant install-ivy"
+PRE_BUILDCMD="$ANT_HOME/bin/ant -buildfile server/build.xml install-ivy"
 echo "-----> executing PREBUILD $PRE_BUILDCMD"
 $PRE_BUILDCMD 2>&1 | indent
 
-BUILDCMD="$ANT_HOME/bin/ant resolve"
+BUILDCMD="$ANT_HOME/bin/ant -buildfile server/build.xml resolve"
 echo "-----> executing BUILD $BUILDCMD"
 
 $BUILDCMD 2>&1
