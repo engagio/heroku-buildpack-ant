@@ -3,7 +3,8 @@
 
 BUILD_DIR=$1
 
-. $(dirname $0)/lib/common.sh
+BP_DIR=$(cd $(dirname $0)/..; pwd) # absolute path
+. $BP_DIR/lib/common.sh
 
 if [ -f $BUILD_DIR/server/build.xml ]; then
    echo "Java (using Apache Ant $ANT_VER)" && exit 0
