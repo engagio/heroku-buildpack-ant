@@ -27,6 +27,6 @@ EOF
 if [ ! -f $BUILD_DIR/Procfile ]; then
 cat <<EOF
 default_process_types:
-  web: ant -buildfile server/build.xml run-dev
+  web: $ANT_HOME/bin/ant -buildfile $HOME/server/build.xml run-dev
 EOF
 fi
