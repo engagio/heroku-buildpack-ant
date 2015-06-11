@@ -90,7 +90,10 @@ $PRE_BUILDCMD 2>&1 | indent
 
 BUILDCMD="$ANT_HOME/bin/ant -buildfile server/build.xml resolve"
 echo "-----> executing BUILD $BUILDCMD"
+$BUILDCMD 2>&1 | indent
 
+BUILDCMD="$ANT_HOME/bin/ant -buildfile server/build.xml"
+echo "-----> executing BUILD $BUILDCMD"
 $BUILDCMD 2>&1
 
 if [ $? != 0 ]; then
