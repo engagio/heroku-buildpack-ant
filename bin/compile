@@ -4,13 +4,14 @@
 # fail fast
 set -e
 
-BP_DIR=$(cd $(dirname $0)/..; pwd) # absolute path
-. $BP_DIR/lib/common.sh
-
 # parse args
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
+
+BP_DIR=$(cd $(dirname $0)/..; pwd) # absolute path
+. $BP_DIR/lib/common.sh
+
 
 export_env_dir $ENV_DIR
 
