@@ -3,13 +3,14 @@
 
 BUILD_DIR="$1"
 
-. $(dirname $0)/common
+BP_DIR=$(cd $(dirname $0)/..; pwd) # absolute path
+. $BP_DIR/lib/common.sh
 
 #here, we need to override the ANT_HOME variable
 ANT_HOME="/app/.buildpack/apache-ant-${ANT_VER}"
 
-export JAVA_HOME="${BUILD_DIR}/.jdk"
-export JAVA_PATH="${BUILD_DIR}/.jdk/bin"
+#export JAVA_HOME="${BUILD_DIR}/.jdk"
+#export JAVA_PATH="${BUILD_DIR}/.jdk/bin"
 
 cat <<EOF
 ---
@@ -20,7 +21,7 @@ config_vars:
     JAVA_OPTS: "-Xmx384m -Xss512k -XX:+UseCompressedOops"
     ANT_OPTS: "-Xmx384m -Xss512k -XX:+UseCompressedOops"
 addons:
-    shared-database: 5mb
+    heroku-postgresql:hobby-dev
 EOF
 
 if [ ! -f $BUILD_DIR/Procfile ]; then
