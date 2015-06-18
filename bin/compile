@@ -48,16 +48,6 @@ mkdir -p $VENDORING_DIR
 # change to vendoring dir to install apache ant
 cd $VENDORING_DIR
 
-if [ -x $SCALA_HOME/bin/scala ] ; then
-    #assuming Apache Ant is already installed...
-	echo "-----> Using Scala version $SCALA_VER....."
-else
-	echo "-----> Installing Scala version $SCALA_VER..... [start]"
-	curl --max-time 180 --location $SCALA_URL | tar xz
-	chmod +x $SCALA_HOME/bin/scala
-	echo "-----> Installing Scala version $SCALA_VER..... [done ]!"
-fi
-
 if [ -x $ANT_HOME/bin/ant ] ; then
     #assuming Apache Ant is already installed...
 	echo "-----> Using Apache Ant $ANT_VER....."
