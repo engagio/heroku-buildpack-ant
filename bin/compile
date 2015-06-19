@@ -90,7 +90,7 @@ BUILDCMD="$BUILD_DIR/deployment/heroku/post_compile"
 if [ -f $BUILDCMD ]; then
     echo "-----> Running post-compile hook"
     chmod +x $BUILDCMD
-    $BUILDCMD 2>&1
+    $BUILDCMD $1 $2 $3 2>&1
 fi
 
 if [ $? != 0 ]; then
