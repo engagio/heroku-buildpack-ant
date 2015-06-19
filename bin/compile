@@ -88,9 +88,9 @@ BUILDCMD="$ANT_HOME/bin/ant -buildfile server/build.xml resolve"
 echo "-----> executing BUILD $BUILDCMD"
 $BUILDCMD 2>&1 | indent
 
-find $BUILD_DIR -name cache -print
-find $CACHE_DIR -name cache -print
-find $ENV_DIR -name cache -print
+find $BUILD_DIR -name "*ivy*" -print
+find $CACHE_DIR -name "*ivy*" -print
+find $ENV_DIR -name "*ivy*" -print
 
 echo "------> Home dir $HOME"
 
