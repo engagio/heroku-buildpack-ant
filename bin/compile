@@ -90,6 +90,9 @@ $BUILDCMD 2>&1 | indent
 
 find $BUILD_DIR -name cache -print
 find $CACHE_DIR -name cache -print
+find $ENV_DIR -name cache -print
+
+echo "------> Home dir $HOME"
 
 if [ -d $BUILD_DIR/.ivy2/cache ]; then
 	echo "-----> Copying ivy cache to cache dir"
