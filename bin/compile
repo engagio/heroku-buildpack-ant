@@ -86,6 +86,13 @@ BUILDCMD="$ANT_HOME/bin/ant -buildfile server/build.xml"
 echo "-----> executing BUILD $BUILDCMD"
 $BUILDCMD 2>&1
 
+BUILDCMD="$BUILD_DIR/deployment/heroku/post_compile"
+if [ -f $BUILDCMD ]; then
+    echo "-----> Running post-compile hook"
+    chmod +x $BUILDCMD
+    $BUILDCMD 2>&1
+fi
+
 if [ $? != 0 ]; then
   echo " !     Failed to build app with Apache Ant"
   exit 1
