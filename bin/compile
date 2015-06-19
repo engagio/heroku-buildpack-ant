@@ -78,29 +78,15 @@ PRE_BUILDCMD="$ANT_HOME/bin/ant -buildfile server/build.xml install-ivy"
 echo "-----> executing PREBUILD $PRE_BUILDCMD"
 $PRE_BUILDCMD 2>&1 | indent
 
-if [ -d $CACHE_DIR/.ivy2/cache ]; then
-	echo "-----> Copying ivy cache to build dir"
-	mkdir -p $BUILD_DIR/.ivy2/cache
-	cp -r $CACHE_DIR/.ivy2/cache $BUILD_DIR/.ivy2/cache
-fi
-
 BUILDCMD="$ANT_HOME/bin/ant -buildfile server/build.xml resolve"
 echo "-----> executing BUILD $BUILDCMD"
 $BUILDCMD 2>&1 | indent
 
 find $BUILD_DIR -name "*ivy*" -print
 find $CACHE_DIR -name "*ivy*" -print
-find $ENV_DIR -name "*ivy*" -print
+find $PWD -name "*ivy*" -print
 
-echo "------> Home dir $HOME"
-
-if [ -d $BUILD_DIR/.ivy2/cache ]; then
-	echo "-----> Copying ivy cache to cache dir"
-	rm -rf $CACHE_DIR/.ivy2/cache
-	mkdir -p $CACHE_DIR/.ivy2/cache
-	cp -r $BUILD_DIR/.ivy2/cache $CACHE_DIR/.ivy2/cache
-fi
-
+echo "------> Home dir $HOME Current dir $PWD"
 
 BUILDCMD="$ANT_HOME/bin/ant -buildfile server/build.xml"
 echo "-----> executing BUILD $BUILDCMD"
