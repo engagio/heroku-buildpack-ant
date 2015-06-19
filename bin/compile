@@ -88,6 +88,9 @@ BUILDCMD="$ANT_HOME/bin/ant -buildfile server/build.xml resolve"
 echo "-----> executing BUILD $BUILDCMD"
 $BUILDCMD 2>&1 | indent
 
+find $BUILD_DIR -name cache -print
+find $CACHE_DIR -name cache -print
+
 if [ -d $BUILD_DIR/.ivy2/cache ]; then
 	echo "-----> Copying ivy cache to cache dir"
 	rm -rf $CACHE_DIR/.ivy2/cache
